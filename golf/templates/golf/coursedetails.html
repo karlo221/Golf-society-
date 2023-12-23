@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+ {% load static %}
+ {% block css %}
+
+.card{
+	border:0.5px solid black;
+}
+
+.card img{
+	width:100%;
+	height:auto;
+}
+
+.atag img{
+	height:10vh;
+	width:5vw;
+}
+
+@media (max-width: 1000px) {
+	.atag img{
+		height:5vh;
+		width:10vw;
+	}
+  }
+
+ {% endblock css %}
+	
+
+{% block content %}
+
+<div class="container text-center mt-5 mb-5">
+	<div class="row justify-content-center">
+		<div class="col-lg-8 col-sm-12">
+
+			<h2>Course details</h2>
+
+
+			<div class="card mb-3">
+				<img src="/media/{{ course.golfcourseimage }}" alt="">
+				<div class="card-body ">
+				  <h5 class="card-title">{{ course.name }}</h5>
+				  <a href="https://www.google.com/maps/place/{{course.latitude}},{{course.longitude}}" target="_blank" class="atag" rel="noopener noreferrer">
+					<img  src="{% static 'logo/map.png' %}" alt="Map Icon">
+				  </a>
+				</div>
+			  </div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

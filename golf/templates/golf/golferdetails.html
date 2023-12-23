@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block css %}
+	
+@media (max-width: 1000px) {
+    
+    .card{
+        margin: 0px 20px 0px 20px;
+        {% comment %} margin {% endcomment %}
+        
+    }
+}
+{% endblock css %}
+	
+{% block content %}
+
+<div class="container text-center mt-5 mb-5">
+	<div class="row justify-content-center">
+		<div class="col-lg-6 col-sm-12">
+			<div class="card mb-3" style="max-width: 540px;">
+				<div class="row g-0">
+					<div class="col-md-4">
+						{% if golfer.profile_pic %}
+						<img src="/media/{{golfer.profile_pic}}" class="card-img-top" alt="...">
+						{% else %}
+						<img src="{% static 'rest_images/new_golfer_avatar.jpg' %}" class="card-img-top" alt="...">
+						{% endif %}
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">{{ golfer.forename }} {{ golfer.surname }}</h5>
+							<p class="card-text"><small class="text-body-secondary"><b>Score :{{ golfer.handicap }}</b>
+								</small></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+{% endblock content %}

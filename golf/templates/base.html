@@ -1,0 +1,126 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/golfers-list.css' %}">
+      
+    <style>
+        
+
+          
+          .navbar-nav a{
+            color:black;
+          
+          }      
+          a{
+            color:white;
+          
+          }  
+          
+
+          .navbar-nav a:hover{
+            color:black;
+            background-color:grey;
+          
+          }
+          
+          
+          footer{
+          background-color:#193526;
+          color:#C0DC8F;
+          }
+        
+
+          .logo-image{
+            width:12vw;
+            height:12vh;
+          }
+          
+          
+          footer a{
+          color:#C0DC8F;
+          text-decoration:none;
+          }
+
+          
+          hr{
+          border: 2px solid white;
+          color:white;
+          }
+          
+
+          .text h1,span{
+          color:white;
+          }
+
+          
+          .golf-area{
+          border:0.5px solid black;
+          }
+
+          .golfer-area{
+            height:100%;
+          }
+
+          .nav-link{
+            font-weight:600;
+          }
+          
+          
+
+            .logo-image{
+              width:9vw;
+              height:auto;
+
+            }
+
+            .bablu{
+              border:0.5px solid #90EE90;
+            }
+
+            .main-navbar2{
+              border:0.5px solid #90EE90;
+            }
+           
+            
+    
+             
+            {% comment %} css for mobile  {% endcomment %}
+            @media (max-width: 1000px) {
+              .logo-image{
+                height:7vh;
+                width:15vw;
+              }
+              }
+              .new-copy-right{
+                text-align:center;
+              }
+              
+       
+        {% block css %}
+        
+
+        {% endblock css %}
+    </style>
+        
+        
+  </head>
+  <body>
+    {% include 'golf/golfers-list.html' %}
+
+{% include 'navbar.html' %}
+    {% block content %}
+    {% endblock content %}
+
+
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/golfers-list.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

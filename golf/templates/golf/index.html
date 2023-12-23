@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+.banner img{
+{% comment %} height:50vh; {% endcomment %}
+min-width:100%;
+}
+
+.navbar-nav a{
+  color:black;
+
+}
+
+
+
+.navbar-nav a:hover{
+  color:black;
+  background-color:grey;
+
+}
+
+
+footer{
+background-color:#193526;
+color:#C0DC8F;
+}
+
+
+
+
+footer a{
+color:#C0DC8F;
+text-decoration:none;
+
+}
+
+a{
+  text-decoration:none;
+
+}
+
+hr{
+border: 4px solid white;
+color:white;
+}
+
+.text h1,span{
+color:white;
+}
+
+.card img{
+height:30vh;
+width:100%;
+}
+
+.golf-body{
+  background-color:antiquewhite;
+}
+
+
+.nav-link{
+  font-weight:600;
+}
+
+
+@media (max-width: 1000px) {
+  .banner img{
+    width:100%;
+    height:30vh;
+  }
+}
+
+{% endblock css %}
+
+
+
+
+{% block content %}
+
+
+
+{% comment %} banner start here.1280*450 {% endcomment %}
+  <div class="container-fluid px-0 banner">
+    <img src="{% static 'rest_images/golfcoursebanner2.jpg' %}"  alt="">
+
+  </div>
+{% comment %} banner start here. {% endcomment %}
+
+<div class="container-fluid visible-xs golf-body">
+  <div class="container pt-3">
+    <div class="row justify-content-center ">
+      <div class="col-sm-12 col-lg-6 text-center">
+        <h1>For lovers of golf</h1>
+        <p>
+          Welcome to the CA377 Golf Society web site. Here at CA377 we are
+          passionate about golf and we are always looking for new members.
+          We want you to love golf as much as we do.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+  
+
+{% comment %} cards start here {% endcomment %}
+  <div class="container ">
+    <div class="row justify-content-center pt-3">
+      <div class="col-sm-8 col-lg-4 m-5">
+        <div class="card golf-area">
+          <img src="{% static 'images/golferimagehome.avif' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Golfers</h5>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="button"  class="btn btn-primary mx-3 mx-auto"><a href="{% url 'golferlist' %}">View More</a> </button>
+                        </div>
+            
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-8 col-lg-4 m-5">
+        <div class="card golf-area">
+          <img src="{% static 'rest_images/golf_course.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title text-center">Golf courses</h5>
+            
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button type="button" class="btn btn-primary mx-3 mx-auto"><a href="{% url 'courselist' %}">View More</a></button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+ {% comment %} Comment for now {% endcomment %}
+  {% comment %} <div class="container">
+    <div class="row justify-content-center pt-3">
+      <div class="col-4">
+        <h3>Current record counts:</h3>
+        <ul>
+          <li>Golfers: {{ num_golfers }}</li>
+          <li>Courses: {{ num_courses }}</li>
+        </ul>
+      </div>
+    </div>
+  </div> {% endcomment %}
+</div>
+
+
+{% endblock content %}

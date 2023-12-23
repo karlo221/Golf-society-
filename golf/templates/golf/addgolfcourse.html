@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block css %}
+
+
+
+label{
+  font-weight: bold;
+}
+
+
+input {
+  max-width: 15em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 5px 5px 15px 0.5px #888888;
+  
+};
+
+
+
+{% endblock css %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="container text-center mt-5 mb-5">
+  <div class="row align-items-center">
+    <div class="col center">
+      <h2>Add golf course</h2>
+
+      <form action="" method="post" enctype="multipart/form-data">
+        
+          {{ form | crispy }}
+        
+        <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}

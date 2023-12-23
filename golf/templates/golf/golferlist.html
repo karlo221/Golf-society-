@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+.card img{
+    height:35vh; 
+    width:100%;
+}
+
+@media (max-width: 1000px) {
+    .card img{
+        
+        height:35vh; 
+        width:100%;
+    }
+    .card{
+        margin: 0px 20px 0px 20px;
+        {% comment %} margin {% endcomment %}
+        
+    }
+}
+    
+{% endblock css %}
+    
+
+
+
+{% block content %}
+
+<div class="container pt-3">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        
+        <div  {% if message.tags %} class="alert alert-{{ message.tags }}"  {% endif %} role="alert">
+            {{ message }}
+          </div>
+            {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="container m-2">
+        <div class="row">
+            <div class="col-lg-3 col-sm-5">
+                <a href="{% url 'addgolfer' %}" class="btn btn-warning ">Add golfer</a></li>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        {% for g in golfers %}
+        <div class="col-sm-3 mb-sm-0 mt-4 pb-5">
+            <div class="card">
+                
+                {% if g.profile_pic %}
+                <img src="/media/{{g.profile_pic}}" class="card-img-top" alt="...">
+                {% else %}
+                
+                <img src="{% static 'rest_images/new_golfer_avatar.jpg' %}" class="card-img-top" alt="...">
+
+                {% endif %}
+                <div class="card-body position-relative">
+                    <h5 class="card-title w-100">{{g.forename}} {{g.surname}}</h5>
+                    
+                    <a href="{% url 'golferdetails' g.id %}" class="btn btn-primary text-start">View more</a>
+
+                    
+
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Rating: {{g.handicap}}</small>
+                </div>
+            
+
+               
+                
+            </div>
+        </div>
+        {% endfor %}
+
+        
+
+
+    </div>
+</div>
+</div>
+{% endblock content %}
